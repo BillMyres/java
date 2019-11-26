@@ -1,0 +1,81 @@
+Change log for CSMClient 1.5
+_________________________________________________________________
+05/20/2018 - ""
+
+[Created ShaderProgram.java]
+
+[Created ResourceLoader.java]
+
+[Created ColorShader.java .vs fs]
+
+ShaderProgram.java:
+	-Added setUniform() method
+
+[Created VertexAttribute.java]
+
+VertexArrayObject.java:
+	-Added support for VertexAttribute.java
+
+TestScene.java:
+	-Added support for VertexAttribute.java
+
+[Created TexturedShader.java .vs .fs]
+
+[Created Texture.java]
+_________________________________________________________________
+
+Input : 0, 90,   180,  270,  360
+Radian: 0, 1.57, 3.14, 4.71, 6.28
+ACRad : 0, 1.57, 3.14, 1.57, 0.00
+
+0 -> 0
+1 -> 1
+2 -> 0
+3 -> 1
+4 -> 0
+
+
+vertices = bpy.context.object.data.vertices
+
+for v in vertices:
+	co = v.co
+	print(str(co[0]) + ", " + str(co[1]) + ", " + str(co[2]))
+
+indices = bpt.context.object.data.polygons
+
+for i in indices:
+	v = i.vertices
+	print(str(v[0]) + ", " + str(v[1]) + ", " + str(v[2]))
+
+
+
+0 -> 0
+1 -> 3
+.
+.
+.
+8 -> 32
+
+
+uvs = 
+
+
+loops (36)
+  -has vertex_index
+uvs (36)
+polygons (12)
+  -has loop index
+
+
+polygon -> loop -> vertex
+loop -> uvs
+
+BEFORE:
+20.380417s
+20.324863s
+20.264116s
+
+AFTER: (2000x faster)
+0.0230781s
+0.0218636s
+0.0262835s
