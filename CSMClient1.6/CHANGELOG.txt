@@ -1,0 +1,400 @@
+CHANGELOG 1.6
+* = created
+- = opened / edit
+
+TODO: 
+	-Normals
+	-Lighting
+	-GUI
+_________________________________________________________________________________________
+08/03/2018 - "Fixing texture issue" (Textures wern't being sent to glsl shaders)
+
+-Scene.java [com.cekeh.game]
+	-Trying to get shader textures to work
+
+-Texture.java [com.cekeh.opengl]
+	-Trying to fix loading the image into glsl shader
+	-Added new constructor for texture that have already have a handle
+
+-Loader.java [com.cekeh.utility]
+	-Debugging texture issue
+
+-ShaderProgram.java [com.cekeh.opengl]
+	-Fixed texture issue, was setting texture slot to the texture handle
+	-Added setTextures(), to change the textures
+_________________________________________________________________________________________
+08/01/2018 - "Shader lighting"
+
+-Light.java [com.cekeh.models]
+	-Playing around with values to help debug shader lighting
+
+-TestScene.java [com.cekeh.game]
+	-Adding / removing models to help debug shader lighting
+
+*FBO.java [com.cekeh.opengl]
+
+-Loader.java [com.cekeh.utility]
+	-Removed system.out calls
+
+-Scene.java [com.cekeh.game]
+	-Playing around with the new FBO object
+_________________________________________________________________________________________
+07/29/2018 - ""
+
+-Matrix.java [com.cekeh.utility]
+	-Broke up transformationMatrix into more usable methods
+	-Added objectMatrix(), for generating object transformation matrix
+	-Added cameraMatrix(), "            " camera "                   "
+
+-Transform.java [com.cekeh.utility]
+	-Updated for new transformationMatrix methods
+
+-VAO.java [com.cekeh.opengl]
+	-Updated for new transformationMatrix methods
+
+-CameraMatrix.java [com.cekeh.utility] Removed
+-CameraTransform.java [com.cekeh.utility] Removed
+
+*ColorShader.java [com.cekeh.shaders]
+
+_________________________________________________________________________________________
+07/28/2018 - ""
+
+*TestScene.java [com.cekeh.game]
+	
+-Scene.java [com.cekeh.game]
+	-Made things more neat
+
+-Game.java [com.cekeh.game]
+	-Added test scene to make things cleaner
+
+-VAO.java [com.cekeh.opengl]
+	-Updated a few values to help light the scene
+
+*CameraMatrix.java [com.cekeh.utility]
+
+-Camera.java [com.cekeh.game]
+	-Added support for the new camera matrix class
+
+*CameraTransform.java [com.cekeh.utility]
+	
+_________________________________________________________________________________________
+07/20/2018 - ""
+
+-test.fs [com.cekeh.res.shaders]
+	-Updated the way normals effect shading
+
+-Game.java [com.cekeh.game]
+	-Updated the way model is loaded
+
+-Matrix.java [com.cekeh.utility]
+	-Playing around with the math for lighting
+
+-Light.java [com.cekeh.models]
+	-Playing around with location, rotation, scale, color... 
+_________________________________________________________________________________________
+07/15/2018 - "Getting ready for lighting"
+
+-Game.java [com.cekeh.game]
+	-Changed default model to normals testing model (plane)
+
+-Loader.java [com.cekeh.utility]
+	-Added support for normals to the loadModel() method
+
+-test.vs [com.cekeh.res.shaders]
+	-Added support for normal attribute
+
+-ShaderProgram.java [com.cekeh.opengl]
+	-Added glUniformf()
+	-Added glUniformfv()
+
+-VAO.java [com.cekeh.opengl]
+	-Added camera position to shader for testing
+	-Added support for null shaders for testing
+
+*Light.java [com.cekeh.models] *temporary location
+	
+*white.vs [com.cekeh.res.shaders]
+
+*white.fs [com.cekeh.res.shaders]
+_________________________________________________________________________________________
+07/02/2018 - ""
+
+*Land0.model [com.cekeh.models]
+
+-Camera.java [com.cekeh.game]
+	-Added shift functionallity
+_________________________________________________________________________________________
+07/01/2018 - "Models!"
+
+*VAO.java [com.cekeh.opengl] (replacing Model.java)
+	-Reworked attributes (added to constructor)
+	-Reworked indices (added to constructor)
+	-Reworked shaders (added to constructor)
+	-Reworked transforms (added to constructor)
+
+	-Removed getAttributes(), not needed after rework
+	-Removed getIndices(), not needed after rework
+	-Removed getShaderProgram(), not needed after rework
+
+-Cube.java [com.cekeh.models] (REMOVED)
+	-Updated for new VAO class
+
+-Game.java [com.cekeh.game]
+	-Updated for new VAO class
+	-Updated for new Model class
+	-Updated for new Scene object
+
+*Model.java [com.cekeh.opengl]
+
+*Scene.java [com.cekeh.game]
+
+*RawModel.java [com.cekeh.utility]
+	
+-Loader.java [com.cekeh.utility]
+	-Added loadModel()
+_________________________________________________________________________________________
+06/25/2018 - ""
+
+-Camera.java [com.cekeh.game]
+	-Fixed rotation issues
+
+-Transform.java [com.cekeh.utility]
+	-Fixed right()
+	-Fixed up()
+	-Fixed forward()
+_________________________________________________________________________________________
+06/18/2018 - ""
+
+-Matrix.java [com.cekeh.utility]
+	-Fixed rotation bug
+	-removed "reversing"
+
+-Transform.java [com.cekeh.utility]
+	-Removed "reversing"
+
+-Cube.java [com.cekeh.models]
+	-Updated for new transform constructor
+
+-Camera.java [com.cekeh.game]
+	-Updated for new transform constructor
+_________________________________________________________________________________________
+06/15/2018 - ""
+
+-Vector3f.java [com.cekeh.utility]
+	-Added dot(), to get the dot product of two vectors
+	-Added cross(), to get the cross product of two vectors
+
+Notes:
+	-Make a maths.java class for stuff like vector dot/cross/etc...
+	-Make a vector "master class"
+_________________________________________________________________________________________
+06/14/2018 - "Clean up"
+
+-Client.java [com.cekeh.glfw]
+	-Removed temporary mouse system
+	-Changed client width
+	-Changed client height
+
+-Transform.java [com.cekeh.utility]
+	-Adding update(), so we only calculate the transformation matrix once per frame
+	-Removed generate(), because there is now a public Matrix available
+	-Updated right()
+	-Updated up()
+	-Updated forward()
+
+-Cube.java [com.cekeh.models]
+	-Added support for transform.java's update() method
+
+-Camera.java [com.cekeh.game]
+	-Added support for transform.java's update() method
+	-Modified update(), to better handle mouse input
+
+-Test.fs [com.cekeh.res.shaders]
+	-Modified out_color for debugging
+
+-Matrix.java [com.cekeh.utility]
+	-Added reverse functionality
+_________________________________________________________________________________________
+06/13/2018 - "Testing"
+
+*WindowSizeCallback.java [com.cekeh.glfw]
+
+-Client.java [com.cekeh.glfw]
+	-Added setWidth()
+	-Added setHeight()
+	-Added cursor_callback (temporary)
+	-Added ability to center window
+	-Added setCursorPosition()
+	-Added centerCursor()
+
+-Cube.java [com.cekeh.models]
+	-Added Transform object, to keep track of position, rotation, and scale
+
+-Transform.java [com.cekeh.utility]
+	-Added new default contructor, position = (0, 0, 0), rotation = (0, 0, 0), scale = (1, 1, 1)
+	-Added forward(), to calculate the forward vector of our transform
+	-Added right()
+	-Added up()
+
+-Matrix.java [com.cekeh.utility]
+	-Added transformationMatrix(), support for transform objects
+
+-Camera.java [com.cekeh.game]
+	-Updated for transform objects
+	-Added update()
+
+-Game.java [com.cekeh.game]
+	-Removed shader culling
+
+Notes: 
+	-Add update to transform.java [com.cekeh.utility] so we only calculate transformation matrix once per frame
+	-Updated java-doc in transform for reverse
+	-Revise transform reverse feature
+_________________________________________________________________________________________
+06/12/2018 - "More matrices!"
+
+-ShaderProgram.java [com.cekeh.opengl]
+	-Added setUniformMatrix(), to set transformation and projection matrices
+	-Tweakd setUniformi(), for more performance
+
+-test.vs [com.cekeh.res.shaders]
+	-Updated for use with matrices
+
+-Model.java [com.cekeh.opengl]
+	-Updated for use with matrices
+
+*Camera.java [com.cekeh.game]
+	-Added projectionMatrix(), to generate the projection matrix needed for the matrices
+	-Added projectionMatrix(), static version
+	-Added viewMatrix(), to generate the view matrix
+
+-Client.java [com.cekeh.glfw]
+	-Added getGame(), to get the game object from the client
+
+-Game.java [com.cekeh.game]
+	-Moved to [com.cekeh.game]
+	-Added Camera object
+	
+Notes:
+	-Move game.java back to [com.cekeh.opengl] maybe?
+_________________________________________________________________________________________
+06/11/2018 - "Shaders!"
+
+-Client.java [com.cekeh.glfw]
+	-Removed initialize(), it's not needed
+
+-Game.java [com.cekeh.opengl]
+	-Removed initialize()
+
+-Model.java [com.cekeh.opengl]
+	-Removed initialize()
+	-Added getIndices(), to get the indices from the abstract object
+	-Added getAttributes(), to get the attributes from the abstract object
+	-Added getShaderProgram(), to get the shader program from the abstract object
+
+-Attribute.java [com.cekeh.opengl]
+	-Removed initialize()
+	-Added bind()
+
+-Cube.java [com.cekeh.models]
+	-Removed initialize()
+	-Added getIndices()
+	-Added getAttributes()
+	-Added getShaderProgram()
+
+-Shader.java [com.cekeh.opengl]
+	-Added attach(), to attach the shader to the shader program
+
+*ShaderProgram.java [com.cekeh.opengl]
+	-Added bind(), to bind the shader for use
+	-Added unbind()
+	-Added cleanUp(), to clean memory resources before termination
+	-Added support for more then one texture
+
+*Test.vs [com.cekeh.res.shaders]
+
+*Test.fs [com.cekeh.res.shaders]
+
+-Loader.java [com.cekeh.utility]
+	-Added loadImage(), to load buffered images from image files
+
+*Texture.java [com.cekeh.opengl]
+	-Added cleanUp(), to clean up memory resources
+	-Added bind(), to bind the texture to a shader
+
+Notes:
+	-Add cleanUp() to shader.java [com.cekeh.opengl]
+	-Need to support more then one client / window size
+	-Finish java-doc comments
+_________________________________________________________________________________________
+06/06/2018 - "Getting ready for shaders"
+
+*Matrix.java (Matrix4f.java replacement) [com.cekeh.utility]
+	-Added transformationMatrix(), generates a transformation matrix based off of a position, rotation, and scale in 3D space
+	-Added multiply(), ability to multiply matrices together
+	
+-Transform.java [com.cekeh.utility]
+	-Added generate(), generates transformation matrix from position, rotation, scale
+
+*Loader.java [com.cekeh.utility]
+	-Added loadString(), loads a string from a text file
+	
+*Shader.java [com.cekeh.opengl]
+
+-Game.java [com.cekeh.opengl]
+	-Added initialize(), for ease of programming
+
+-Model.java [com.cekeh.opengl]
+	-Added initialize(), for ease of programming
+	-Removed getAttributes(), attributes can now be handed to the constructor because of our initialize method
+	-Removed getIndices(), can be handed to constructor now
+	
+-Attribute.java [com.cekeh.opengl]
+	-Added initialize(), for ease of programming
+	
+-Cube.java [com.cekeh.models]
+	-Added support for model.java
+	
+Notes:
+	Model.java [com.cekeh.opengl]
+		-Attribute system needs revisiting
+		
+	Possibly remove the new initialize system
+		-It's causing us to store one copy of data on the cpu and another on the gpu
+		-Better to only store it once
+_________________________________________________________________________________________
+06/05/2018 - "Matrices"
+
+*Matrix4f.java [com.cekeh.utility]
+
+*Transform.java [com.cekeh.utility]
+_________________________________________________________________________________________
+06/04/2018 - "Getting started"
+
+*Client.java [com.cekeh.glfw]
+	-Added support for GLFW window
+	
+*Game.java [com.cekeh.opengl]
+	-Added support for OpenGL
+	
+*Vector2f.java [com.cekeh.utility]
+
+*Vector3f.java [com.cekeh.utility]
+
+*Vector4f.java [com.cekeh.utility]
+
+*Vector2i.java [com.cekeh.utility]
+
+*Vector3i.java [com.cekeh.utility]
+
+*Vector4i.java [com.cekeh.utility]
+
+*Model.java  [com.cekeh.opengl]
+	-Made model an abstract class in order to grab unique attributes
+
+*Attribute.java [com.cekeh.opengl]
+
+*Cube.java [com.cekeh.models]
+	-Purley for testing
+_________________________________________________________________________________________

@@ -1,0 +1,122 @@
+CHANGELOG 1.7
+* = created
+- = opened / edit
+
+2650 x 700
+
+
+a: 6  |  31  ||  0.577358  |  11.292857  |   7.409433  |  40.435714
+
+______________________________________________________________________________________
+______________________________________________________________________________________
+______________________________________________________________________________________
+______________________________________________________________________________________
+______________________________________________________________________________________
+______________________________________________________________________________________
+______________________________________________________________________________________
+08/19/2018 - ""
+
+-Texture.java [com.cekeh.opengl]
+	-Fixed texture issues
+
+Notes: 
+	-Fix shaderprogram.bind()
+______________________________________________________________________________________
+08/18/2018 - ""
+
+*ImageShader.java [com.cekeh.shaders.unlit]
+
+-Box.java [com.cekeh.models]
+	-Updated constructor to accept ShaderPrograms
+
+-Game.java [com.cekeh.main]
+	-Updated box objects
+
+-Loader.java [com.cekeh.utility]
+	-Added loadImage(String path)
+
+-ShaderProgram.java [com.cekeh.opengl]
+	-Added more null checks
+
+______________________________________________________________________________________
+08/13/2018 - "Making lots of progress"
+
+TODO:
+	-SingleTextureShader class
+	-Make a box cover the screen and try to render the framebuffer image to it
+
+*Vector4f.java [com.cekeh.utility]
+
+-ColorShader.java [com.cekeh.shaders]
+	-Added Getters / Setters
+	-Added new constructor
+	-Adjusted for new ShaderProgram constructor
+
+-Box.java [com.cekeh.models]
+	-Updating the constructor to include a ColorShader
+
+-ShaderProgram.java [com.cekeh.opengl]
+	-Removed need for attributes in constructor
+	-Added bindAttribute(Attribute attribute)
+	-Added support for the Texture class
+
+-Model.java [com.cekeh.opengl]
+	-Adjusted for new ShaderProgram methods
+
+*FrameBuffer.java [com.cekeh.opengl]
+
+*Texture.java [com.cekeh.opengl]
+
+______________________________________________________________________________________
+08/11/2018 - "Making things nicer"
+
+*Loader.java [com.cekeh.utility]
+
+*ColorShader.java [com.cekeh.shaders]
+
+*color_shader.vs [com.cekeh.shaders.src]
+
+*color_shader.fs [com.cekeh.shaders.src]
+
+-Model.java [com.cekeh.opengl]
+	-Added support for ColorShader.java
+
+-ShaderProgram.java [com.cekeh.opengl]
+	-Added support for ColorShader.java
+	-Added setUniformiv(), to add information to our shader
+	-Added setUniformfv(), "                              "
+
+*Box.java [com.cekeh.models]
+
+-Game.java [com.cekeh.game]
+	-Removed temporary values for testing Models
+	-Added temporary values for testing framebuffer (comming soon)
+
+______________________________________________________________________________________
+08/06/2018 - "Keep 'er goin'"
+
+-VertexArrayObject.java [com.cekeh.opengl]
+
+-Game.java [com.cekeh.game]
+
+-VertexBufferObject.java [com.cekeh.opengl]
+
+*Model.java [com.cekeh.opengl]
+
+*Attribute.java [com.cekeh.opengl]
+
+*ShaderProgram.java [com.cekeh.opengl]
+
+*ShaderStage.java [com.cekeh.opengl]
+
+______________________________________________________________________________________
+08/04/2018 - "A...nother new beginning"
+
+*Main.java [com.cekeh.main]
+
+*VertexArrayObject.java [com.cekeh.opengl]
+
+*Game.java [com.cekeh.main]
+
+*VertexBufferObject.java [com.cekeh.opengl]
+______________________________________________________________________________________
